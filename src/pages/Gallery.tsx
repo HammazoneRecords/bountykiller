@@ -10,7 +10,7 @@ const PHOTOS = [
 export default function Gallery() {
   return (
     <section className="relative h-screen flex items-center pt-14">
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
 
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="mb-6">
           <p className="font-body font-bold text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(216,208,193,0.4)' }}>&#9632; Visual Archive</p>

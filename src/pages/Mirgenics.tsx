@@ -10,11 +10,11 @@ const RELEASES = [
 export default function Mirgenics() {
   return (
     <section className="relative h-screen flex items-center pt-14">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
 
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="mb-8">
           <p className="font-body font-bold text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(216,208,193,0.4)' }}>&#9632; Music · Label</p>
-          <h2 className="font-display text-4xl md:text-5xl" style={{ color: '#D8D0C1' }}>MIRGENICS</h2>
+          <h2 className="font-display text-4xl md:text-5xl" style={{ color: '#D8D0C1' }}>MUSIC</h2>
           <p className="font-body text-sm mt-1 mb-3" style={{ color: 'rgba(216,208,193,0.4)' }}>Bounty Killer&rsquo;s independent label and creative command centre</p>
           <div className="h-px w-12" style={{ background: '#6B1A1A' }} />
         </motion.div>

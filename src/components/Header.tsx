@@ -9,7 +9,7 @@ const NAV: { label: string; id: Page }[] = [
   { label: 'ABOUT',    id: 'about' },
   { label: 'NEWS',     id: 'news' },
   { label: 'GALLERY',  id: 'gallery' },
-  { label: 'MIRGENICS', id: 'mirgenics' },
+  { label: 'MUSIC',     id: 'mirgenics' },
   { label: 'CONTACT',  id: 'contact' },
 ];
 

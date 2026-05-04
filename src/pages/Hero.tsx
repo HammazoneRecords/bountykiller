@@ -1,6 +1,37 @@
 import { motion } from 'motion/react';
 import type { Page } from '../App';
 
+const SMOKE_PUFFS = [
+  { left: '5%',  delay: 0,   dur: 9,  drift: '-20px', size: 160 },
+  { left: '18%', delay: 2.5, dur: 11, drift: '35px',  size: 200 },
+  { left: '32%', delay: 1,   dur: 10, drift: '-40px', size: 180 },
+  { left: '47%', delay: 3.5, dur: 12, drift: '25px',  size: 220 },
+  { left: '62%', delay: 0.8, dur: 9,  drift: '-30px', size: 170 },
+  { left: '76%', delay: 2,   dur: 11, drift: '45px',  size: 190 },
+  { left: '90%', delay: 1.5, dur: 10, drift: '-15px', size: 160 },
+];
+
+function SmokeEffect() {
+  return (
+    <div className="absolute bottom-0 left-0 right-0 h-72 pointer-events-none z-20 overflow-hidden">
+      {SMOKE_PUFFS.map((p, i) => (
+        <div key={i} style={{
+          position: 'absolute',
+          bottom: -20,
+          left: p.left,
+          width: p.size,
+          height: p.size,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(180,195,210,0.45) 0%, rgba(150,170,190,0.2) 40%, transparent 70%)',
+          filter: 'blur(28px)',
+          animation: `smoke-rise ${p.dur}s ${p.delay}s infinite ease-out`,
+          '--drift': p.drift,
+        } as React.CSSProperties} />
+      ))}
+    </div>
+  );
+}
+
 interface Props { setPage: (p: Page) => void; }
 
 function WarlordBadge() {
@@ -26,25 +57,28 @@ export default function Hero({ setPage }: Props) {
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-14 pb-12 overflow-hidden">
 
-      {/* Hero photo — sharp, on top of global blurred bg */}
+      {/* Hero photo — zoomed out to show full image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/bk-hero.png"
           alt="Bounty Killer"
-          className="w-full h-full object-cover object-top"
-          style={{ filter: 'saturate(0.8) brightness(0.85)' }}
+          className="w-full h-full object-contain object-center"
+          style={{ filter: 'saturate(0.85) brightness(0.9)' }}
         />
-        {/* Left text area gradient */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(12,14,7,0.92) 0%, rgba(12,14,7,0.65) 50%, rgba(12,14,7,0.2) 100%)' }} />
-        {/* Bottom gradient */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,14,7,0.95) 0%, transparent 50%)' }} />
-        {/* Blue smoke top-right */}
-        <div className="absolute top-0 right-0 w-3/5 h-2/3 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 90% 10%, rgba(20,55,100,0.45) 0%, transparent 60%)' }} />
+        {/* Dark left panel so text reads clearly */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(12,14,7,0.88) 0%, rgba(12,14,7,0.55) 45%, rgba(12,14,7,0.15) 100%)' }} />
+        {/* Bottom fade */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,14,7,0.92) 0%, transparent 45%)' }} />
+        {/* Blue atmospheric tint */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 75% 30%, rgba(15,45,90,0.4) 0%, transparent 60%)' }} />
       </div>
 
+      {/* Smoke machine effect */}
+      <SmokeEffect />
+
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
 
         {/* Tag */}
         <motion.p
