@@ -30,7 +30,7 @@ const HEADLINES = [
 export default function News() {
   return (
     <section className="relative h-screen flex items-center pt-14">
-      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
+      <div className="relative z-10 w-full max-w-6xl px-10 md:px-14 lg:px-16">
 
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="mb-8">
           <p className="font-body font-bold text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(216,208,193,0.4)' }}>&#9632; Dispatches</p>

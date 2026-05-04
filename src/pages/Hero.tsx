@@ -62,7 +62,7 @@ export default function Hero({ setPage }: Props) {
         <img
           src="/bk-hero.png"
           alt="Bounty Killer"
-          className="w-full h-full object-contain object-center"
+          className="w-full h-full object-cover object-center"
           style={{ filter: 'saturate(0.85) brightness(0.9)' }}
         />
         {/* Dark left panel so text reads clearly */}
@@ -78,7 +78,7 @@ export default function Hero({ setPage }: Props) {
       <SmokeEffect />
 
       {/* Content */}
-      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24">
+      <div className="relative z-10 w-full px-10 md:px-20 lg:px-28">
 
         {/* Tag */}
         <motion.p
