@@ -59,10 +59,10 @@ export default function Hero({ setPage }: Props) {
       {/* Hero photo — object-contain to show full image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/bk-hero.png"
+          src="/bk-hero-square.png"
           alt="Bounty Killer"
-          className="w-full h-full object-contain object-top"
-          style={{ filter: 'saturate(0.9) brightness(0.95)', transform: 'scale(0.92)', transformOrigin: 'top center' }}
+          className="w-full h-full object-cover object-top"
+          style={{ filter: 'saturate(0.9) brightness(0.95)' }}
         />
         {/* Bottom-heavy dark fade so text reads over image */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,14,7,0.97) 0%, rgba(12,14,7,0.65) 35%, rgba(12,14,7,0.1) 70%, transparent 100%)' }} />
