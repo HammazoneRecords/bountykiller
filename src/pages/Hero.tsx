@@ -109,6 +109,12 @@ export default function Hero({ setPage }: Props) {
             >
               BOUNTY
             </h1>
+            {/* Zero-width anchor exactly at the B·K boundary — badge positions relative to this */}
+            <div style={{ position: 'relative', width: 0, height: 0, overflow: 'visible', flexShrink: 0 }}>
+              <div style={{ position: 'absolute', left: 0, top: '50%', transform: 'translate(-50%, -50%)', zIndex: 10, opacity: 0.5 }}>
+                <WarlordBadge />
+              </div>
+            </div>
             {/* KILLER normal — K lands on the left edge, adjacent to B */}
             <h1
               className="font-metal leading-none"
@@ -121,10 +127,6 @@ export default function Hero({ setPage }: Props) {
             >
               KILLER
             </h1>
-            {/* Badge floats over the B·K junction at dead center */}
-            <div className="absolute" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
-              <WarlordBadge />
-            </div>
           </motion.div>
         </div>
 
