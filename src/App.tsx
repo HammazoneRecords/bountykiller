@@ -3,19 +3,19 @@ import { Info } from 'lucide-react';
 import Header from './components/Header';
 import Hero from './pages/Hero';
 import About from './pages/About';
-import News from './pages/News';
+import Merch from './pages/Merch';
 import Gallery from './pages/Gallery';
 import Mirgenics from './pages/Mirgenics';
 import Contact from './pages/Contact';
 
-export type Page = 'home' | 'about' | 'news' | 'gallery' | 'mirgenics' | 'contact';
+export type Page = 'home' | 'about' | 'merch' | 'gallery' | 'mirgenics' | 'contact';
 
 export default function App() {
   const [page, setPage] = useState<Page>('home');
   const navigate = (p: Page) => { setPage(p); window.scrollTo(0, 0); };
 
   return (
-    <div className="relative min-h-screen bg-olive-dark overflow-hidden">
+    <div className="relative min-h-screen bg-olive-dark">
 
       {/* Global blurred hero background — always present */}
       <div className="fixed inset-0 z-0">
@@ -39,7 +39,7 @@ export default function App() {
       <main className="relative z-10">
         {page === 'home'     && <Hero setPage={navigate} />}
         {page === 'about'    && <About />}
-        {page === 'news'     && <News />}
+        {page === 'merch'    && <Merch />}
         {page === 'gallery'  && <Gallery />}
         {page === 'mirgenics' && <Mirgenics />}
         {page === 'contact'  && <Contact />}

@@ -7,7 +7,7 @@ interface Props { page: Page; setPage: (p: Page) => void; }
 const NAV: { label: string; id: Page }[] = [
   { label: 'HOME',     id: 'home' },
   { label: 'ABOUT',    id: 'about' },
-  { label: 'NEWS',     id: 'news' },
+  { label: 'MERCH',    id: 'merch' },
   { label: 'GALLERY',  id: 'gallery' },
   { label: 'MUSIC',     id: 'mirgenics' },
   { label: 'CONTACT',  id: 'contact' },
