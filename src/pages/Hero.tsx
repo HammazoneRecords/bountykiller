@@ -36,7 +36,7 @@ interface Props { setPage: (p: Page) => void; }
 
 function WarlordBadge() {
   return (
-    <svg width="68" height="68" viewBox="0 0 68 68" className="shrink-0 mx-2 md:mx-4 relative top-1">
+    <svg width="72" height="72" viewBox="0 0 68 68" className="shrink-0">
       <circle cx="34" cy="34" r="32" fill="rgba(20,28,8,0.85)" stroke="rgba(216,208,193,0.5)" strokeWidth="1.5" />
       <circle cx="34" cy="34" r="26" fill="none" stroke="rgba(216,208,193,0.2)" strokeWidth="0.5" strokeDasharray="3 3" />
       {[0,72,144,216,288].map((deg, i) => {
@@ -88,18 +88,19 @@ export default function Hero({ setPage }: Props) {
           &#9632; The General&rsquo;s Command
         </motion.p>
 
-        {/* Name — BOUNTY [badge] KILLER — each word mirrored */}
-        <div className="overflow-hidden mb-2">
+        {/* Name — BOUNTY mirrored (YTNUOB) + KILLER normal → B and K meet at center, badge overlays the junction */}
+        <div className="mb-2">
           <motion.div
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="flex items-center justify-center flex-wrap gap-0"
+            className="relative flex items-center justify-center gap-0"
           >
+            {/* BOUNTY mirrored — B lands on the right edge */}
             <h1
               className="font-metal leading-none"
               style={{
-                fontSize: 'clamp(3rem, 10vw, 8.5rem)',
+                fontSize: 'clamp(2.5rem, 10vw, 8.5rem)',
                 color: '#D8D0C1',
                 letterSpacing: '0.02em',
                 transform: 'scaleX(-1)',
@@ -108,19 +109,22 @@ export default function Hero({ setPage }: Props) {
             >
               BOUNTY
             </h1>
-            <WarlordBadge />
+            {/* KILLER normal — K lands on the left edge, adjacent to B */}
             <h1
               className="font-metal leading-none"
               style={{
-                fontSize: 'clamp(3rem, 10vw, 8.5rem)',
+                fontSize: 'clamp(2.5rem, 10vw, 8.5rem)',
                 color: '#D8D0C1',
                 letterSpacing: '0.02em',
-                transform: 'scaleX(-1)',
                 display: 'inline-block',
               }}
             >
               KILLER
             </h1>
+            {/* Badge floats over the B·K junction at dead center */}
+            <div className="absolute" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', zIndex: 10 }}>
+              <WarlordBadge />
+            </div>
           </motion.div>
         </div>
 
