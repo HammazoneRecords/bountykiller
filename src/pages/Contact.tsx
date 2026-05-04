@@ -2,12 +2,12 @@ import { motion } from 'motion/react';
 
 export default function Contact() {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden pt-14">
+    <section className="relative h-screen flex items-center pt-14">
       <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 w-full">
 
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="mb-8">
           <p className="font-body font-bold text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(216,208,193,0.4)' }}>&#9632; Booking · Press · Business</p>
-          <h2 className="font-display text-4xl md:text-6xl" style={{ color: '#D8D0C1' }}>COMMAND LINE</h2>
+          <h2 className="font-display text-4xl md:text-6xl" style={{ color: '#D8D0C1' }}>CONTACT</h2>
           <div className="h-px w-12 mt-3" style={{ background: '#6B1A1A' }} />
         </motion.div>
 
@@ -46,7 +46,7 @@ export default function Contact() {
           <button disabled
             className="w-full py-3 font-display text-sm tracking-[0.25em] cursor-not-allowed"
             style={{ background: 'rgba(107,26,26,0.2)', border: '1px solid rgba(107,26,26,0.3)', color: 'rgba(200,100,100,0.4)' }}>
-            TRANSMIT
+            SEND
           </button>
           <p className="mt-2 text-center font-body text-[9px] tracking-widest uppercase" style={{ color: 'rgba(216,208,193,0.2)' }}>
             Contact form activates after purchase — owner configures on setup

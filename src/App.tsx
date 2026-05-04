@@ -4,14 +4,15 @@ import Header from './components/Header';
 import Hero from './pages/Hero';
 import About from './pages/About';
 import News from './pages/News';
-import Sybkpics from './pages/Sybkpics';
+import Gallery from './pages/Gallery';
 import Mirgenics from './pages/Mirgenics';
 import Contact from './pages/Contact';
 
-export type Page = 'home' | 'about' | 'news' | 'sybkpics' | 'mirgenics' | 'contact';
+export type Page = 'home' | 'about' | 'news' | 'gallery' | 'mirgenics' | 'contact';
 
 export default function App() {
   const [page, setPage] = useState<Page>('home');
+  const navigate = (p: Page) => { setPage(p); window.scrollTo(0, 0); };
 
   return (
     <div className="relative min-h-screen bg-olive-dark overflow-hidden">
@@ -33,13 +34,13 @@ export default function App() {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)' }} />
       </div>
 
-      <Header page={page} setPage={setPage} />
+      <Header page={page} setPage={navigate} />
 
       <main className="relative z-10">
-        {page === 'home'     && <Hero setPage={setPage} />}
+        {page === 'home'     && <Hero setPage={navigate} />}
         {page === 'about'    && <About />}
         {page === 'news'     && <News />}
-        {page === 'sybkpics' && <Sybkpics />}
+        {page === 'gallery'  && <Gallery />}
         {page === 'mirgenics' && <Mirgenics />}
         {page === 'contact'  && <Contact />}
       </main>

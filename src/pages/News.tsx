@@ -29,7 +29,7 @@ const HEADLINES = [
 
 export default function News() {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden pt-14">
+    <section className="relative h-screen flex items-center pt-14">
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
 
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="mb-8">

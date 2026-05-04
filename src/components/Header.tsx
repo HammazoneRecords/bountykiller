@@ -2,16 +2,13 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import type { Page } from '../App';
 
-interface Props {
-  page: Page;
-  setPage: (p: Page) => void;
-}
+interface Props { page: Page; setPage: (p: Page) => void; }
 
 const NAV: { label: string; id: Page }[] = [
   { label: 'HOME',     id: 'home' },
   { label: 'ABOUT',    id: 'about' },
   { label: 'NEWS',     id: 'news' },
-  { label: 'SYBKPICS', id: 'sybkpics' },
+  { label: 'GALLERY',  id: 'gallery' },
   { label: 'MIRGENICS', id: 'mirgenics' },
   { label: 'CONTACT',  id: 'contact' },
 ];

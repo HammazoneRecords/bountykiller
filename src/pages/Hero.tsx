@@ -32,7 +32,7 @@ export default function Hero({ setPage }: Props) {
           src="/bk-hero.png"
           alt="Bounty Killer"
           className="w-full h-full object-cover object-top"
-          style={{ filter: 'saturate(0.65) brightness(0.6)' }}
+          style={{ filter: 'saturate(0.8) brightness(0.85)' }}
         />
         {/* Left text area gradient */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(12,14,7,0.92) 0%, rgba(12,14,7,0.65) 50%, rgba(12,14,7,0.2) 100%)' }} />
@@ -103,7 +103,7 @@ export default function Hero({ setPage }: Props) {
           className="flex flex-wrap gap-4"
         >
           <a
-            href="https://music.apple.com/us/artist/bounty-killer/217892"
+            href="https://www.youtube.com/@BountyKillerVEVO"
             target="_blank"
             rel="noopener noreferrer"
             className="font-display text-sm tracking-[0.2em] px-8 py-3 transition-all duration-200 hover:brightness-110"
