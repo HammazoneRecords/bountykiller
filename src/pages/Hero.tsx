@@ -39,7 +39,6 @@ function WarlordBadge() {
     <svg width="68" height="68" viewBox="0 0 68 68" className="shrink-0 mx-2 md:mx-4 relative top-1">
       <circle cx="34" cy="34" r="32" fill="rgba(20,28,8,0.85)" stroke="rgba(216,208,193,0.5)" strokeWidth="1.5" />
       <circle cx="34" cy="34" r="26" fill="none" stroke="rgba(216,208,193,0.2)" strokeWidth="0.5" strokeDasharray="3 3" />
-      {/* Star points */}
       {[0,72,144,216,288].map((deg, i) => {
         const rad = (deg - 90) * Math.PI / 180;
         const x1 = 34 + 20 * Math.cos(rad);
@@ -55,30 +54,28 @@ function WarlordBadge() {
 
 export default function Hero({ setPage }: Props) {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-14 pb-12 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-end pb-20 pt-14 overflow-hidden">
 
-      {/* Hero photo — zoomed out to show full image */}
+      {/* Hero photo — object-contain to show full image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/bk-hero.png"
           alt="Bounty Killer"
-          className="w-full h-full object-cover object-center"
-          style={{ filter: 'saturate(0.85) brightness(0.9)' }}
+          className="w-full h-full object-contain object-top"
+          style={{ filter: 'saturate(0.9) brightness(0.95)', transform: 'scale(0.92)', transformOrigin: 'top center' }}
         />
-        {/* Dark left panel so text reads clearly */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(12,14,7,0.88) 0%, rgba(12,14,7,0.55) 45%, rgba(12,14,7,0.15) 100%)' }} />
-        {/* Bottom fade */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,14,7,0.92) 0%, transparent 45%)' }} />
+        {/* Bottom-heavy dark fade so text reads over image */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(12,14,7,0.97) 0%, rgba(12,14,7,0.65) 35%, rgba(12,14,7,0.1) 70%, transparent 100%)' }} />
         {/* Blue atmospheric tint */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 75% 30%, rgba(15,45,90,0.4) 0%, transparent 60%)' }} />
+          style={{ background: 'radial-gradient(ellipse at 60% 25%, rgba(15,45,90,0.35) 0%, transparent 60%)' }} />
       </div>
 
       {/* Smoke machine effect */}
       <SmokeEffect />
 
-      {/* Content */}
-      <div className="relative z-10 w-full px-10 md:px-20 lg:px-28">
+      {/* Content — centered */}
+      <div className="relative z-10 w-full flex flex-col items-center text-center px-6">
 
         {/* Tag */}
         <motion.p
@@ -91,63 +88,72 @@ export default function Hero({ setPage }: Props) {
           &#9632; The General&rsquo;s Command
         </motion.p>
 
-        {/* Name — BOUNTY [badge] KILLER */}
-        <div className="overflow-hidden mb-1">
+        {/* Name — BOUNTY [badge] KILLER — each word mirrored */}
+        <div className="overflow-hidden mb-2">
           <motion.div
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="flex items-center flex-wrap gap-0"
+            className="flex items-center justify-center flex-wrap gap-0"
           >
-            <h1 className="font-display leading-none" style={{ fontSize: 'clamp(3.5rem, 10vw, 8.5rem)', color: '#D8D0C1', letterSpacing: '-0.01em' }}>
+            <h1
+              className="font-metal leading-none"
+              style={{
+                fontSize: 'clamp(3rem, 10vw, 8.5rem)',
+                color: '#D8D0C1',
+                letterSpacing: '0.02em',
+                transform: 'scaleX(-1)',
+                display: 'inline-block',
+              }}
+            >
               BOUNTY
             </h1>
             <WarlordBadge />
-            <h1 className="font-display leading-none" style={{ fontSize: 'clamp(3.5rem, 10vw, 8.5rem)', color: '#D8D0C1', letterSpacing: '-0.01em' }}>
+            <h1
+              className="font-metal leading-none"
+              style={{
+                fontSize: 'clamp(3rem, 10vw, 8.5rem)',
+                color: '#D8D0C1',
+                letterSpacing: '0.02em',
+                transform: 'scaleX(-1)',
+                display: 'inline-block',
+              }}
+            >
               KILLER
             </h1>
           </motion.div>
         </div>
 
-        {/* Subtitle */}
+        {/* Subtitle — THE GODFATHER only */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="font-body font-bold text-sm md:text-xl tracking-[0.2em] uppercase mb-10"
+          className="font-body font-bold text-sm md:text-xl tracking-[0.3em] uppercase mb-10"
           style={{ color: 'rgba(216,208,193,0.6)' }}
         >
-          The Next Millennium: The Godfather&rsquo;s Era
+          The Godfather
         </motion.p>
 
-        {/* Divider */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.55, ease: 'easeOut' }}
-          className="h-px origin-left mb-10"
-          style={{ background: 'linear-gradient(to right, rgba(216,208,193,0.5), transparent)', width: '55%' }}
-        />
-
-        {/* CTAs */}
+        {/* CTAs — centered, LISTEN NOW prominent */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.4 }}
-          className="flex flex-wrap gap-4"
+          className="flex flex-col sm:flex-row gap-4 items-center"
         >
           <a
             href="https://www.youtube.com/@BountyKillerVEVO"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display text-sm tracking-[0.2em] px-8 py-3 transition-all duration-200 hover:brightness-110"
+            className="font-display text-base md:text-lg tracking-[0.25em] px-14 py-4 transition-all duration-200 hover:brightness-110"
             style={{ background: '#6B1A1A', color: '#D8D0C1', border: '1px solid rgba(139,26,26,0.8)' }}
           >
             LISTEN NOW
           </a>
           <button
             onClick={() => setPage('about')}
-            className="font-body font-bold text-[11px] tracking-[0.25em] uppercase px-8 py-3 transition-all duration-200 hover:brightness-125 relative"
+            className="font-body font-bold text-[11px] tracking-[0.25em] uppercase px-8 py-4 transition-all duration-200 hover:brightness-125"
             style={{
               background: 'rgba(20,40,12,0.7)',
               border: '1px solid rgba(63,175,63,0.5)',
@@ -160,13 +166,6 @@ export default function Hero({ setPage }: Props) {
             <span className="ml-2 text-[8px] opacity-60">&#9632;&#9632;</span>
           </button>
         </motion.div>
-      </div>
-
-      {/* Footer strip */}
-      <div className="absolute bottom-10 left-0 right-0 flex items-center justify-center z-10">
-        <p className="font-body text-[10px] tracking-[0.4em] uppercase" style={{ color: 'rgba(216,208,193,0.25)' }}>
-          /// The Next Millennium / The Warlord ///
-        </p>
       </div>
     </section>
   );

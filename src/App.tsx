@@ -23,7 +23,7 @@ export default function App() {
           src="/bk-hero.png"
           alt=""
           className="w-full h-full object-cover object-top"
-          style={{ filter: 'blur(18px) saturate(0.7) brightness(0.35)', transform: 'scale(1.08)' }}
+          style={{ filter: 'blur(18px) saturate(0.7) brightness(0.35)', transform: 'scale(1.0)' }}
         />
         {/* Olive tint */}
         <div className="absolute inset-0" style={{ background: 'rgba(20,28,8,0.55)' }} />

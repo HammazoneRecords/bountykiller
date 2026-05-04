@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Anton&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -13,6 +13,7 @@
   --color-hud:         #2D7A2D;
   --color-hud-bright:  #3FAF3F;
   --font-display: "Anton", Impact, ui-sans-serif, sans-serif;
+  --font-metal:   "Metal Mania", serif;
   --font-body:    "Roboto Condensed", ui-sans-serif, sans-serif;
 }
 
