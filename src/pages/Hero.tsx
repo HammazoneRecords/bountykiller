@@ -34,34 +34,22 @@ function SmokeEffect() {
 
 interface Props { setPage: (p: Page) => void; }
 
-function WarlordBadge() {
-  return (
-    <svg width="72" height="72" viewBox="0 0 68 68" className="shrink-0">
-      <circle cx="34" cy="34" r="32" fill="rgba(20,28,8,0.85)" stroke="rgba(216,208,193,0.5)" strokeWidth="1.5" />
-      <circle cx="34" cy="34" r="26" fill="none" stroke="rgba(216,208,193,0.2)" strokeWidth="0.5" strokeDasharray="3 3" />
-      {[0,72,144,216,288].map((deg, i) => {
-        const rad = (deg - 90) * Math.PI / 180;
-        const x1 = 34 + 20 * Math.cos(rad);
-        const y1 = 34 + 20 * Math.sin(rad);
-        return <line key={i} x1="34" y1="34" x2={x1} y2={y1} stroke="rgba(216,208,193,0.4)" strokeWidth="0.8" />;
-      })}
-      <circle cx="34" cy="34" r="12" fill="rgba(30,40,12,0.9)" stroke="rgba(216,208,193,0.6)" strokeWidth="1" />
-      <text x="34" y="31" textAnchor="middle" fontFamily="Anton, Impact, sans-serif" fontSize="5.5" fill="#D8D0C1" letterSpacing="0.08em">THE</text>
-      <text x="34" y="38.5" textAnchor="middle" fontFamily="Anton, Impact, sans-serif" fontSize="6.5" fill="#D8D0C1" letterSpacing="0.05em">WARLORD</text>
-    </svg>
-  );
-}
-
 export default function Hero({ setPage }: Props) {
   return (
     <section className="relative min-h-screen flex flex-col justify-end pb-20 pt-14 overflow-hidden">
 
-      {/* Hero photo — object-contain to show full image */}
+      {/* Hero photo — square for mobile, landscape for md+ */}
       <div className="absolute inset-0 z-0">
         <img
           src="/bk-hero-square.png"
           alt="Bounty Killer"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top md:hidden"
+          style={{ filter: 'saturate(0.9) brightness(0.95)' }}
+        />
+        <img
+          src="/bk-hero.png"
+          alt="Bounty Killer"
+          className="w-full h-full object-cover object-top hidden md:block"
           style={{ filter: 'saturate(0.9) brightness(0.95)' }}
         />
         {/* Bottom-heavy dark fade so text reads over image */}
@@ -88,7 +76,7 @@ export default function Hero({ setPage }: Props) {
           &#9632; The General&rsquo;s Command
         </motion.p>
 
-        {/* Name — BOUNTY mirrored (YTNUOB) + KILLER normal → B and K meet at center, badge overlays the junction */}
+        {/* Name */}
         <div className="mb-2">
           <motion.div
             initial={{ y: '100%' }}
@@ -96,7 +84,6 @@ export default function Hero({ setPage }: Props) {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="relative flex items-center justify-center gap-0"
           >
-            {/* BOUNTY mirrored — B lands on the right edge */}
             <h1
               className="font-metal leading-none"
               style={{
@@ -109,13 +96,6 @@ export default function Hero({ setPage }: Props) {
             >
               BOUNTY
             </h1>
-            {/* Zero-width anchor exactly at the B·K boundary — badge positions relative to this */}
-            <div style={{ position: 'relative', width: 0, height: 0, overflow: 'visible', flexShrink: 0 }}>
-              <div style={{ position: 'absolute', left: 0, top: '50%', transform: 'translate(-50%, -50%)', zIndex: 10, opacity: 0.5 }}>
-                <WarlordBadge />
-              </div>
-            </div>
-            {/* KILLER normal — K lands on the left edge, adjacent to B */}
             <h1
               className="font-metal leading-none"
               style={{
@@ -130,7 +110,7 @@ export default function Hero({ setPage }: Props) {
           </motion.div>
         </div>
 
-        {/* Subtitle — THE GODFATHER only */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -141,7 +121,7 @@ export default function Hero({ setPage }: Props) {
           The Godfather
         </motion.p>
 
-        {/* CTAs — centered, LISTEN NOW prominent */}
+        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
