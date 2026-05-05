@@ -36,7 +36,7 @@ interface Props { setPage: (p: Page) => void; }
 
 export default function Hero({ setPage }: Props) {
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-20 pt-14 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-end pt-14 overflow-hidden" style={{ paddingBottom: 'clamp(10rem, 24vw, 14rem)' }}>
 
       {/* Hero photo — square for mobile, landscape for md+ */}
       <div className="absolute inset-0 z-0">
