@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Info } from 'lucide-react';
+import Preload from './components/Preload';
 import Header from './components/Header';
+import WorkingDraftBanner from './components/WorkingDraftBanner';
 import Hero from './pages/Hero';
 import About from './pages/About';
 import Merch from './pages/Merch';
@@ -12,10 +13,12 @@ export type Page = 'home' | 'about' | 'merch' | 'gallery' | 'mirgenics' | 'conta
 
 export default function App() {
   const [page, setPage] = useState<Page>('home');
+  const [preloadDone, setPreloadDone] = useState(false);
   const navigate = (p: Page) => { setPage(p); window.scrollTo(0, 0); };
 
   return (
     <div className="relative min-h-screen bg-olive-dark">
+      {!preloadDone && <Preload onComplete={() => setPreloadDone(true)} />}
 
       {/* Global blurred hero background — always present */}
       <div className="fixed inset-0 z-0">
@@ -45,15 +48,7 @@ export default function App() {
         {page === 'contact'  && <Contact />}
       </main>
 
-      {/* Disclaimer banner */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 px-4 py-2 flex items-center justify-center gap-2"
-        style={{ background: 'rgba(245,158,11,0.08)', borderTop: '1px solid rgba(245,158,11,0.2)' }}>
-        <Info size={13} style={{ color: 'rgba(251,191,36,0.85)', flexShrink: 0 }} />
-        <p className="font-body text-[10px] uppercase tracking-widest text-center" style={{ color: 'rgba(251,191,36,0.65)' }}>
-          Working draft — buyer assumes responsibility for clearing image &amp; likeness rights with Bounty Killer. This site is available for{' '}
-          <a href="https://mindwaveja.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }} className="hover:opacity-100 transition-opacity">purchase</a>.
-        </p>
-      </div>
+      <WorkingDraftBanner artist="Bounty Killer" />
     </div>
   );
 }
