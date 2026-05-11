@@ -23,7 +23,7 @@ export default function App() {
       {/* Global blurred hero background — always present */}
       <div className="fixed inset-0 z-0">
         <img
-          src="/bk-hero.png"
+          src="/bk-hero.webp"
           alt=""
           className="w-full h-full object-cover object-top"
           style={{ filter: 'blur(18px) saturate(0.7) brightness(0.35)', transform: 'scale(1.0)' }}

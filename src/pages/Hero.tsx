@@ -41,13 +41,13 @@ export default function Hero({ setPage }: Props) {
       {/* Hero photo — square for mobile, landscape for md+ */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/bk-hero-square.png"
+          src="/bk-hero-square.webp"
           alt="Bounty Killer"
           className="w-full h-full object-cover object-top md:hidden"
           style={{ filter: 'saturate(0.9) brightness(0.95)' }}
         />
         <img
-          src="/bk-hero.png"
+          src="/bk-hero.webp"
           alt="Bounty Killer"
           className="w-full h-full object-cover object-top hidden md:block"
           style={{ filter: 'saturate(0.9) brightness(0.95)' }}

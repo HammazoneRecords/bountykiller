@@ -27,7 +27,7 @@ export default function Sybkpics() {
             <div key={i} className="relative aspect-square overflow-hidden group"
               style={{ border: '1px solid rgba(216,208,193,0.1)' }}>
               <img
-                src="/bk-hero.png"
+                src="/bk-hero.webp"
                 alt={tile.label}
                 className={`w-full h-full object-cover ${tile.obj} transition-transform duration-500 group-hover:scale-105`}
                 style={{ filter: `saturate(0.5) brightness(${0.35 + i * 0.05})`, transform: `scale(${1 + i * 0.05})` }}
